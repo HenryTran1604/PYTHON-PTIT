@@ -1,12 +1,10 @@
 def count(arr, n):
     cnt = 0
-    for i in range(n - 1):
-        s = set()
-        for j in range(i + 1, n):
-            if -(arr[i] + arr[j]) in s:
-                cnt += 1
-            s.add(arr[j])
-    return cnt
+    s = set()
+    for i in range(n - 2):
+        for j in range(i + 1, n - 1):
+            tmp = a[i] + a[j]
+
 
 
 if __name__ == '__main__':
