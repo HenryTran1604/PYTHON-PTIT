@@ -3,19 +3,26 @@ if __name__ == '__main__':
     for _ in range(t):
         s = list(input())
         check = False
-        st, R = [], [0] * len(s)
+        st, R = [], [-1] * len(s)
+        f = [-1] * 10
+        pos = -1
         for i in range(len(s) - 1, -1, -1):
-            while len(st) and s[st[-1]] >= s[i]:
-                st.pop()
-            if len(st) == 0:
-                R[i] = -1
-            else:
-                pos = st[-1]
-                if not (i == 0 and s[pos] == '0'):
-                    print(i, pos)
-                    s[i], s[pos] = s[pos], s[i]
-                    check = True
+            for j in range(int(s[i]) - 1, -1, -1):
+                if f[j] != -1:
+                    pos = i
+                    R[pos] = f[j]
                     break
-            st.append(i)
-        print(s, check)
+            if pos != -1:
+                break
+            f[int(s[i])] = i
+        if pos == -1:
+            print(-1)
+        else:
+            s[pos], s[R[pos]] = s[R[pos]], s[pos]
+            if s[0] == '0':
+                print(-1)
+            else:
+                for x in s:
+                    print(x, end='')
+                print()
 # 34512234567

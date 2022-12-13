@@ -1,2 +1,6 @@
-if __name__ == '__main__':
-    print(len('Can cu Ke hoach giang day – hoc tap hoc ky 1 nam hoc 2021 – 2022 Can cu ket qua thi hoc ky 2 va'))
+import decimal
+
+
+a = decimal.Decimal('6.625')
+b = float(a.quantize(decimal.Decimal('0.00'), rounding=decimal.ROUND_HALF_UP))
+print(b)
